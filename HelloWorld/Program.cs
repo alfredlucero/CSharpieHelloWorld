@@ -58,3 +58,40 @@ alfred.Introduce();
 var calculator = new Calculator();
 var result = calculator.Add(1, 2);
 Console.WriteLine("Result of calc adding {0}", result);
+
+// Arrays
+var numArray = new int[3];
+numArray[0] = 1;
+numArray[1] = 2;
+numArray[2] = 3;
+Console.WriteLine("Array at index 0 " + numArray[0]);
+Console.WriteLine("Joining array " + string.Join(",", numArray));
+var strArray = new string[3] { "Alfred", "Regine", "Another" };
+
+// Strings (immutable)
+string couple = string.Format("{0} + {1}", strArray[0], strArray[1]);
+Console.WriteLine("Couple " + couple);
+
+// Enum usage
+var shippingMethod = ShippingMethod.Express;
+Console.WriteLine("Shipping method " + (int)shippingMethod + " " + shippingMethod.ToString());
+var shippingMethodId = 2;
+Console.WriteLine("Shipping method name " + (ShippingMethod)shippingMethodId);
+var methodName = "Express";
+var parsedMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+Console.WriteLine("Parsed method " + parsedMethod);
+// Enum
+public enum ShippingMethod
+{
+    RegularAirMail = 0,
+    RegisteredAirMail = 1,
+    Express = 2
+}
+
+// Structs
+public struct RgbColor
+{
+    public int Red;
+    public int Green;
+    public int Blue;
+}
