@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using HelloWorld.Person;
 using HelloWorld.Math;
+using HelloWorld.ShippingMethod;
 
 Console.WriteLine("Hello, World!");
 
@@ -80,13 +81,75 @@ Console.WriteLine("Shipping method name " + (ShippingMethod)shippingMethodId);
 var methodName = "Express";
 var parsedMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
 Console.WriteLine("Parsed method " + parsedMethod);
-// Enum
-public enum ShippingMethod
+
+// Conditionals
+if (true)
 {
-    RegularAirMail = 0,
-    RegisteredAirMail = 1,
-    Express = 2
+    Console.WriteLine("Condition is true");
 }
+switch (shippingMethod)
+{
+    case ShippingMethod.Express:
+        Console.WriteLine("Express switch!");
+        break;
+    default:
+        break;
+}
+
+// Iterations
+for (var k = 0; k < 10; k++)
+{
+    Console.WriteLine("for loop k: " + k);
+}
+
+foreach (var currentNum in numArray)
+{
+    Console.WriteLine("Currentnum " + currentNum);
+}
+
+var l = 0;
+while (l < 3)
+{
+    Console.WriteLine("While l " + l);
+    l++;
+}
+
+var bballTeam = "Lakers";
+for (var bIdx = 0; bIdx < bballTeam.Length; bIdx++)
+{
+    Console.WriteLine(bballTeam[bIdx]);
+}
+foreach (var bChar in bballTeam)
+{
+    Console.WriteLine(bChar);
+}
+
+var random = new Random();
+var buffer = new char[3];
+for (var randIdx = 0; randIdx < 3; randIdx++)
+{
+    Console.WriteLine(random.Next(1, 10));
+    Console.WriteLine((char)random.Next(97, 122));
+    Console.WriteLine((char)('a' + random.Next(0, 26)));
+    buffer[randIdx] = (char)('a' + random.Next(0, 26));
+}
+var bufferStr = new string(buffer);
+Console.WriteLine("bufferStr " + bufferStr);
+
+while (true)
+{
+    Console.Write("Type your name: ");
+    var input = Console.ReadLine();
+
+    if (!String.IsNullOrEmpty(input))
+    {
+        Console.WriteLine("@Echo: " + input);
+        break;
+    }
+
+    Console.WriteLine("You must type in a valid string to break out");
+}
+
 
 // Structs
 public struct RgbColor
